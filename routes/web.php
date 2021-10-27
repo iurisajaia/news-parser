@@ -76,6 +76,7 @@ Route::get('/', function () {
         'onge' => getOnGe(),
         'public' => getPublic(),
         'radio' => getRadio()
+        
     ]);
 
 });
