@@ -11,7 +11,7 @@
 
         <!-- Styles -->
         <style>
-            html, body {
+            html,body {
                 background-color: #fff;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
@@ -19,6 +19,7 @@
                 height: 100vh;
                 margin: 0;
                 padding : 50px;
+                scroll-behavior: smooth;
             }
 
 
@@ -39,57 +40,95 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            ul {
+                display: flex;
+                margin-bottom: 40px;
+                position: fixed;
+                background: grey;
+                width: 100%;
+                left: 0;
+                padding: 20px;
+                top: 0;
+                margin-top: 0;
+            }
+            li {
+                list-style-type: none;
+                margin-right: 20px;
+            }
+            li a {
+                color: #fff;
+                text-decoration: none;
+                font-size: 18px;
+            }
+            .press-block{
+                padding-top: 50px;
+            }
         </style>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-
+            <ul>
+                <li><a href="#netgazeti">ნეტგაზეთი</a></li>
+                <li><a href="#onge">on.ge</a></li>
+                <li><a href="#tavisufleba">თავისუფლება</a></li>
+                <li><a href="#ipn">ipn</a></li>
+                <li><a href="#tv">1TV</a></li>
+            </ul>
             <div class="content">
                 
-                <h1>ნეტგაზეთი</h1>
-                <div class="links">
-                    @if($netgazeti)
-                        @foreach($netgazeti as $net)
-                            <a href="{{$net->href}}" target="_blank">{{$net->title}}</a>
-                        @endforeach
-                    @endif
+                <div id="netgazeti" class="press-block">
+                    <h1>ნეტგაზეთი</h1>
+                    <div class="links">
+                        @if($netgazeti)
+                            @foreach($netgazeti as $net)
+                                <a href="{{$net->href}}" target="_blank">{{$net->title}}</a>
+                            @endforeach
+                        @endif
+                    </div>
                 </div>
 
-                <h1>ON.GE</h1>
-                <div class="links">
-                    @if($onge)
-                        @foreach($onge as $net)
-                            <a href="{{$net->href}}" target="_blank">{{$net->title}}</a>
-                        @endforeach
-                    @endif
+                <div id="onge" class="press-block">
+                    <h1>ON.GE</h1>
+                    <div class="links">
+                        @if($onge)
+                            @foreach($onge as $net)
+                                <a href="{{$net->href}}" target="_blank">{{$net->title}}</a>
+                            @endforeach
+                        @endif
+                    </div>
                 </div>
 
-                <h1>რადიო თავისუფლება</h1>
-                <div class="links">
-                    @if($radio)
-                        @foreach($radio as $net)
-                            <a href="https://www.radiotavisupleba.ge{{$net->href}}" target="_blank">{{$net->title}}</a>
-                        @endforeach
-                    @endif
+                <div id="tavisufleba" class="press-block">
+                    <h1>რადიო თავისუფლება</h1>
+                    <div class="links">
+                        @if($radio)
+                            @foreach($radio as $net)
+                                <a href="https://www.radiotavisupleba.ge{{$net->href}}" target="_blank">{{$net->title}}</a>
+                            @endforeach
+                        @endif
+                    </div>
                 </div>
 
-
-                <h1>IPN</h1>
-                <div class="links">
-                    @if($ipn)
-                        @foreach($ipn as $net)
-                            <a href="https://www.interpressnews.ge/ka/{{$net->url}}" target="_blank">{{$net->title}}</a>
-                        @endforeach
-                    @endif
+                <div id="ipn" class="press-block">
+                    <h1>IPN</h1>
+                    <div class="links">
+                        @if($ipn)
+                            @foreach($ipn as $net)
+                                <a href="https://www.interpressnews.ge/ka/{{$net->url}}" target="_blank">{{$net->title}}</a>
+                            @endforeach
+                        @endif
+                    </div>
                 </div>
 
-                <h1>1TV</h1>
-                <div class="links">
-                    @if($public)
-                        @foreach($public as $net)
-                            <a href="{{$net->post_permalink}}" target="_blank">{{$net->post_title}}</a>
-                        @endforeach
-                    @endif
+                <div id="tv" class="press-block">
+                    <h1>1TV</h1>
+                    <div class="links">
+                        @if($public)
+                            @foreach($public as $net)
+                                <a href="{{$net->post_permalink}}" target="_blank">{{$net->post_title}}</a>
+                            @endforeach
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
