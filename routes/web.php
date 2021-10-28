@@ -21,10 +21,10 @@ function getNetgazeti(){
 }
 
 function getRadio(){
-    $radio = Cache::remember("radio" , now()->addMinutes(10), function(){
+    $radio = Cache::remember("radio" , now()->addMinutes(15), function(){
         $client = new Client();
         $crawler = $client->request('GET', 'https://www.radiotavisupleba.ge/');
-        return $crawler->filter('.media-block__content > a')->each(function ($node){
+        return $crawler->filter('div.media-block__content > a')->each(function ($node){
             $object = new stdClass();
             $object->href = $node->attr('href');
             $object->title = $node->text();
