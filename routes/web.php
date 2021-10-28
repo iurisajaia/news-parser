@@ -49,7 +49,7 @@ function getOnGe(){
 }
 
 function getIpn(){
-    $ipn = Cache::remember("ipn" , now()->addMinutes(10), function(){
+    $ipn = Cache::remember("ipn" , now()->addMinutes(2), function(){
         $response = Http::post('https://www.interpressnews.ge/ka/api/home/articles/' , [
             'page' => 1,
             'loaded' => 0,
